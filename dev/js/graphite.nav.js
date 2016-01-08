@@ -15,7 +15,7 @@
     // Create the defaults once
     var pluginName = "graphiteNav",
         defaults = {
-            disableGuides: true,
+            disableGuides: false,
             active_class: "active"
         };
 
