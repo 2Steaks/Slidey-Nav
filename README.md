@@ -1,5 +1,4 @@
 # Graphite-Nav-JS
-jQuery plugin for auto centering mobile menu (currently requires GSAP TweenMax)
 
 Includes:
 - Dragging
@@ -8,6 +7,7 @@ Includes:
 
 ```js
 $('nav').graphiteNav({
-    active_class: 'is--active'
+    activeClass: 'is--active',
+    disableGuides: false
 });
 ```
