@@ -16,7 +16,7 @@
     var pluginName = "graphiteNav",
         defaults = {
             disableGuides: false,
-            active_class: "active"
+            activeClass: "active"
         };
 
     // The actual plugin constructor
@@ -126,7 +126,7 @@
             if (this.listTooSmall())
                 return false;
 
-            var item = (this.centered_item) ? this.centered_item : this.items.filter('.' + this.settings.active_class);
+            var item = (this.centered_item) ? this.centered_item : this.items.filter('.' + this.settings.activeClass);
 
             if (item.length === 0) {
                 if (typeof console !== "undefined" || typeof console.warn !== "undefined")
