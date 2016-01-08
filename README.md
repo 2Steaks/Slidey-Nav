@@ -1,5 +1,7 @@
 # Graphite-Nav-JS
 
+Demo: http://codepen.io/anon/pen/VebWdM
+
 Includes:
 - Dragging
 - Scrolling
