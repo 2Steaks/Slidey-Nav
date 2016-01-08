@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Graphite Nav Demo</title>
+        <link rel="stylesheet" href="css/graphite.nav.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+        <script src="js/graphite.nav.js"></script>
+        <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href=""><span>Menu Item One</span></a></li>
+                        <li><a href=""><span>Menu Item Two</span></a></li>
+                        <li><a href=""><span>Menu Item Three</span></a></li>
+                        <li><a href=""><span>Menu Item Four</span></a></li>
+                        <li class="is--active"><a href=""><span>Menu Item Five</span></a></li>
+                        <li><a href=""><span>Menu Item Six</span></a></li>
+                        <li><a href=""><span>Menu Item Seven</span></a></li>
+                        <li><a href=""><span>Menu Item Eight</span></a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <script>
+        (function() {
+            var nav = $('nav').graphiteNav({
+                active_class: 'is--active'
+            });
+        })();
+        </script>
+    </body>
+
+</html>

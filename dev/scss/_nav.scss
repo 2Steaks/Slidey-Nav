@@ -1,0 +1,102 @@
+@include font-face("icons", "../fonts/icons/icons");
+$nav-hover-timing: 0.2s;
+$icons: "icons";
+nav {
+    background-color: #EFEFEF;
+    overflow: hidden;
+    position: relative;
+    height: 48px;
+    &:before, &:after {
+        color: #91022e;
+        font-family: $icons;
+        position: absolute;
+        top: 0;
+        width: 10%;
+        height: 100%;
+        padding-top: 15px;
+        z-index: 10;
+        @include transition(all 0.2s ease-in-out);
+    }
+    &:before {
+        left: 0;
+        padding-left: 1px;
+        text-align: left;
+        content: '\e901';
+        @include linear-gradient(280deg, rgba(255, 255, 255, 0), white);
+        @include transform(translateX(-100%));
+    }
+    &:after {
+        right: 0;
+        padding-right: 1px;
+        text-align: right;
+        content: '\e900';
+        @include linear-gradient(90deg, rgba(255, 255, 255, 0), white);
+        @include transform(translateX(100%));
+    }
+}
+
+nav.has--prev {
+    &:before {
+        @include transform(translateX(0%));
+    }
+}
+
+nav.has--next {
+    &:after {
+        @include transform(translateX(0%));
+    }
+}
+
+nav ul {
+    position: absolute;
+    text-align: center;
+    height: 100%;
+    padding: 0;
+    overflow: visible;
+    white-space: nowrap;
+    margin: 0;
+    z-index: 1;
+    @include transition(all 0s);
+    @include transform(translateY(0));
+}
+
+nav.is--inactive ul {
+    left: 0;
+    right: 0;
+    @include transform(translateY(0) !important);
+}
+
+nav.is--centering ul {
+    @include transition(all 0.5s);
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    height: 100%;
+    @include transition(background-color $nav-hover-timing);
+    &.is--active {
+        background-color: white;
+    }
+    @media screen and (min-width: 769px) {
+        &:hover {
+            background-color: white;
+        }
+    }
+}
+
+nav ul li a {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-decoration: none;
+}
+
+nav ul li a span {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: arial;
+}
+
