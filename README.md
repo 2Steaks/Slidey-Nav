@@ -1,6 +1,6 @@
 # Graphite-Nav-JS
 
-Demo: http://codepen.io/anon/pen/VebWdM
+Demo: http://codepen.io/benjo696/pen/YwVQJY
 
 Includes:
 - Dragging
