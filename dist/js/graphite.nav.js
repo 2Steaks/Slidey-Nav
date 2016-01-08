@@ -15,9 +15,8 @@
     // Create the defaults once
     var pluginName = "graphiteNav",
         defaults = {
-            guides: true,
-            active_class: "active",
-            is_centering: true
+            disableGuides: true,
+            active_class: "active"
         };
 
     // The actual plugin constructor
@@ -32,6 +31,7 @@
         this.cursor_position = 0;
         this.centered_item = false;
         this.active = true;
+        this.is_centering = true;
         this.list = this.element.children('ul');
         this.items = this.list.children('li');
         this.item_count = this.items.length;
@@ -266,14 +266,14 @@
                 remaining = child_width - parent_width,
                 buffer = 1;
 
-            this.settings.is_centering = true;
+            this.is_centering = true;
 
             if (distance < buffer) {
                 distance = 0;
-                this.settings.is_centering = false;
+                this.is_centering = false;
             } else if (distance > (remaining - buffer)) {
                 distance = remaining;
-                this.settings.is_centering = false;
+                this.is_centering = false;
             }
 
             return distance;
@@ -286,7 +286,7 @@
          */
         dominantItem: function(e) {
 
-            if (!this.settings.is_centering) {
+            if (!this.is_centering) {
                 this.setGuides();
                 return false;
             }
@@ -353,6 +353,9 @@
          * @return {[type]} [description]
          */
         setGuides: function() {
+
+            if (this.settings.disableGuides)
+                return false;
 
             var parent_width = this.element.width(),
                 list_position = Math.abs(this.getMenuPosition()),
