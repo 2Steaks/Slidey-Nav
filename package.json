@@ -1,9 +1,6 @@
 {
     "name": "graphite-nav",
     "version": "0.1.0",
-    "keywords": [
-        "jquery-plugin"
-    ],
     "devDependencies": {
         "grunt": "^0.4.5",
         "grunt-contrib-concat": "^0.5.1",
@@ -12,5 +9,14 @@
         "grunt-contrib-watch": "^0.6.1",
         "grunt-sass": "^1.0.0",
         "matchdep": "~0.3.0"
-    }
+    },
+    "keywords": [
+        "auto-centering",
+        "edge-detection",
+        "dragging",
+        "scrolling",
+        "sticky",
+        "jquery-plugin",
+        "ecosystem:jquery"
+    ],
 }
