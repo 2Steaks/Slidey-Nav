@@ -1,4 +1,4 @@
-/*! graphite-nav - v0.1.0 - 2016-01-08 *//*
+/*! graphite-nav - v0.1.0 - 2016-01-21 *//*
  *  Graphite Mobile Navigation - v0.1.0
  *  A horizontal navigation plugin for mobile devices
  *  http://graphitedigital.com
@@ -15,8 +15,10 @@
     // Create the defaults once
     var pluginName = "graphiteNav",
         defaults = {
-            disableGuides: true,
-            active_class: "active"
+            disableDesktop: false,
+            disableGuides: false,
+            breakPoint: 768,
+            activeClass: "active"
         };
 
     // The actual plugin constructor
@@ -48,6 +50,9 @@
 
             var scope = this;
 
+            if (this.settings.disableDesktop)
+                this.bindMediaQueries();
+
             this.bindUIActions();
             this.resizeOn();
 
@@ -62,6 +67,7 @@
          */
         bindUIActions: function() {
 
+            this.items.children('a').on('click', $.proxy(this.activateLink, this));
             this.element.on('mousewheel', $.proxy(this.onMouseScroll, this));
             this.element.on('mousedown touchstart', $.proxy(this.onDragStart, this));
             this.element.on('mousemove touchmove', $.proxy(this.onDrag, this));
@@ -83,6 +89,9 @@
          */
         resizeOn: function() {
 
+            if ($(window).width() > this.settings.breakPoint)
+                return false;
+
             var activeItem = this.debounce(this.activeItem, 200);
             $(window).on('resize', $.proxy(activeItem, this));
 
@@ -94,6 +103,32 @@
         resizeOff: function() {
 
             $(window).off('resize');
+
+        },
+        /**
+         * [bindMediaQueries description]
+         * @return {[type]} [description]
+         */
+        bindMediaQueries: function() {
+
+            var break_point = window.matchMedia("(max-width: " + this.settings.breakPoint + "px)");
+            break_point.addListener($.proxy(this.breakPoint, this));
+
+        },
+        /**
+         * [breakPoint description]
+         * @param  {[type]} e [description]
+         * @return {[type]}   [description]
+         */
+        breakPoint: function(e) {
+
+            if (e.matches) {
+                this.resizeOn();
+                this.bindUIActions();
+            } else {
+                this.resizeOff();
+                this.unBindUIActions();
+            }
 
         },
         /**
@@ -126,7 +161,7 @@
             if (this.listTooSmall())
                 return false;
 
-            var item = (this.centered_item) ? this.centered_item : this.items.filter('.' + this.settings.active_class);
+            var item = (this.centered_item) ? this.centered_item : this.items.filter('.' + this.settings.activeClass);
 
             if (item.length === 0) {
                 if (typeof console !== "undefined" || typeof console.warn !== "undefined")
@@ -412,6 +447,16 @@
             });
 
             return width;
+
+        },
+        /**
+         * [activateLink description]
+         * @return {[type]} [description]
+         */
+        activateLink: function(e) {
+
+            this.items.children('a').closest('li').removeClass(this.settings.activeClass);
+            $(e.target).closest('li').addClass(this.settings.activeClass);
 
         },
         /**
