@@ -20,7 +20,7 @@
         "auto-centering",
         "edge-detection",
         "dragging",
-        "scrolling",
+        "side-scrolling",
         "sticky",
         "jquery-plugin",
         "ecosystem:jquery"

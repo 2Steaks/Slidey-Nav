@@ -1,15 +1,23 @@
-# Graphite-Nav-JS
+# GraphiteNav - Side scrolling navigation.
 
-Demo: http://codepen.io/benjo696/pen/YwVQJY
+# What to use GraphiteNav.js for
+GraphiteNav was created for single level menus which need side scrolling and automatic centering.
 
-Includes:
+#Demo
+http://codepen.io/benjo696/pen/YwVQJY
+
+#Current features
 - Dragging
-- Scrolling
+- Mouse scrollable
 - Edge detection
+- Automatic centering
+- Extra menu options indicated by icons
 
+#Basic Usage Example
 ```js
 $('nav').graphiteNav({
     activeClass: 'is--active',
-    disableGuides: false
+    disableGuides: false,
+    disableDesktop: false
 });
 ```

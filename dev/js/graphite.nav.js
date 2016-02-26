@@ -455,7 +455,7 @@
          */
         activateLink: function(e) {
 
-            this.items.children('a').closest('li').removeClass(this.settings.activeClass);
+            this.items.removeClass(this.settings.activeClass);
             $(e.target).closest('li').addClass(this.settings.activeClass);
 
         },
