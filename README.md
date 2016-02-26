@@ -1,6 +1,4 @@
 # GraphiteNav - Side scrolling navigation.
-
-# What to use GraphiteNav.js for
 GraphiteNav was created for single level menus which need side scrolling and automatic centering.
 
 #Demo
