@@ -42,14 +42,14 @@ module.exports = function(grunt) {
             },
             main: {
                 src: ['dev/js/**/*.js'],
-                dest: '<%= asset_path %>/js/graphite.nav.js',
+                dest: '<%= asset_path %>/js/slideynav.nav.js',
             },
         },
 
         uglify: {
             dist: {
                 files: {
-                    '<%= asset_path %>/js/graphite.nav.min.js': ['<%= asset_path %>/js/graphite.nav.js']
+                    '<%= asset_path %>/js/slideynav.min.js': ['<%= asset_path %>/js/slideynav.js']
                 }
             }
         },
