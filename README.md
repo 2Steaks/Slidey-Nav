@@ -13,7 +13,7 @@ http://codepen.io/benjo696/pen/YwVQJY
 
 #Basic Usage Example
 ```js
-$('nav').graphiteNav({
+$('nav').slideyNav({
     activeClass: 'is--active',
     disableGuides: false,
     disableDesktop: false
