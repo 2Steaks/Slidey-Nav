@@ -1,5 +1,5 @@
-# GraphiteNav - Side scrolling navigation.
-GraphiteNav was created for single level menus which need side scrolling and automatic centering.
+# Side scrolling navigation.
+SlideyNav was created for single level menus which need side scrolling and automatic centering.
 
 #Demo
 http://codepen.io/benjo696/pen/YwVQJY
