@@ -1,19 +1,17 @@
 /*
- *  Graphite Mobile Navigation - v0.1.0
+ *  slideyNav Mobile Navigation - v0.1.0
  *  A horizontal navigation plugin for mobile devices
- *  http://graphitedigital.com
  *
  *  dependencies: GSAP TweenMax JS
  *
  *  Made by Ben Simpson
- *  Under MIT License
  */
 (function($, window, document, undefined) {
 
     "use strict";
 
     // Create the defaults once
-    var pluginName = "graphiteNav",
+    var pluginName = "slideyNav",
         defaults = {
             disableDesktop: false,
             disableGuides: false,
@@ -22,7 +20,7 @@
         };
 
     // The actual plugin constructor
-    function GraphiteNav(element, options) {
+    function SlideyNav(element, options) {
 
         this.element = $(element);
         this.settings = $.extend({}, defaults, options);
@@ -41,7 +39,7 @@
 
     }
 
-    $.extend(GraphiteNav.prototype, {
+    $.extend(SlideyNav.prototype, {
         /**
          * [init description]
          * @return {[type]} [description]
@@ -165,7 +163,7 @@
 
             if (item.length === 0) {
                 if (typeof console !== "undefined" || typeof console.warn !== "undefined")
-                    console.warn('Graphite Nav: Cannot find active list element, please check your class name matches.');
+                    console.warn('Slidey Nav: Cannot find active list element, please check your class name matches.');
 
                 this.centerNavFallback();
                 return false;
@@ -523,11 +521,11 @@
         }
     });
 
-    $.fn.graphiteNav = function(options) {
+    $.fn.slideyNav = function(options) {
 
         return this.each(function() {
             if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new GraphiteNav(this, options));
+                $.data(this, "plugin_" + pluginName, new SlideyNav(this, options));
             }
         });
 
